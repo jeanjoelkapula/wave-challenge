@@ -1,3 +1,14 @@
+# Table of contents
+
+- [Wave Challenge (Payroll Api)](#wave-challenge-payroll-api)
+- [Features](#features)
+- [Assumptions](#assumptions)
+- [Tech Stack](#tech-stack)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Running your local server](#running-your-local-server)
+- [Routes](#routes)
+
 # Wave Challenge (Payroll Api)
 This project is a simple Payroll API as a challenge set by Wave for their Full-stack Developer applicants. Click [Wave Challenge](https://github.com/wvchallenges/se-challenge-payroll) to view the original channel repository.
 
@@ -7,6 +18,13 @@ The application has 2 endpoints:
 * **Payroll Report**: this endpoint returns a payroll report based on all of the data across all of the uploaded time reports, for all time. The report is sorted first by employee id and then by pay period start. 
 
     For each month of a reported year, the pay amount for each employee is reported over two periods (1 to 15 and 16 to month end).  
+    
+# Assumptions
+It has been assumed that employees and job groups would be already created in the database. Therefore, records in those table would need to be created beforehand.
+
+You will need to run the insert_records function provided in the util file of the payroll app in your python shell to create records to get you started. Those records are created based on the information provided in the challenge and the sample csv file. 
+
+
 # Tech Stack
 * Python (Django / Django Rest Framework)
 
@@ -26,14 +44,14 @@ The application has 2 endpoints:
 # Installation
  1. Clone repository
        ```
-		 git clone https://github.com/jeanjoelkapula/wave-challenge.git
+	 git clone https://github.com/jeanjoelkapula/wave-challenge.git
 	 ```
 
-2. Install Requirements
+2. Requirements
 
     Virtual environment is recommended. 
      ```
-			 pip install -r requirements.txt
+	 pip install -r requirements.txt
 	 ```
 # Running your local server
 
@@ -41,9 +59,19 @@ The application has 2 endpoints:
 	```
 	 python manage.py migrate
 	```
-1. Start the server
+3. Run the insert_records function
+    from the root of the project directory
+    ```
+    >>> python manage.py shell
+    >>> from payroll.util import insert_records
+    >>> insert_records()  
+    >>> exit()
 	```
-	 python manage.py runserver
+
+   
+3. Start the server
+	```
+    python manage.py runserver
 	```
 
 # Routes
