@@ -28,9 +28,8 @@ The application has 2 endpoints:
        ```
 		 git clone https://github.com/jeanjoelkapula/wave-challenge.git
 	 ```
-2. cd into project folder
 
-3. Install Requirements
+2. Install Requirements
 
     Virtual environment is recommended. 
      ```
