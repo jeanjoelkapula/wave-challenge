@@ -13,5 +13,8 @@ class Employee(models.Model):
 class TimeReport(models.Model):
     id = models.IntegerField(null=False, blank=False, primary_key=True)
     date = models.DateField(auto_now_add=True)
+
+class TimeReportLine(models.Model):
+    report = models.ForeignKey(TimeReport,null=False, blank=False, on_delete=models.CASCADE, related_name="reportLines")
     hoursWorked = models.FloatField(null=False)
     employee = models.ForeignKey(Employee,null=False, blank=False, on_delete=models.DO_NOTHING, related_name="timeReports")
