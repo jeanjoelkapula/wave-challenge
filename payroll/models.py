@@ -1,5 +1,6 @@
 from django.db import models
 from sqlalchemy import null
+from datetime import datetime
 
 # Create your models here.
 class JobGroup(models.Model):
@@ -16,5 +17,6 @@ class TimeReport(models.Model):
 
 class TimeReportLine(models.Model):
     report = models.ForeignKey(TimeReport,null=False, blank=False, on_delete=models.CASCADE, related_name="reportLines")
+    date = models.DateField(null=False, default=datetime.now().date())
     hoursWorked = models.FloatField(null=False)
     employee = models.ForeignKey(Employee,null=False, blank=False, on_delete=models.DO_NOTHING, related_name="timeReports")
