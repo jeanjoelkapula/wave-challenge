@@ -42,8 +42,8 @@ class ReportSerializer(serializers.ModelSerializer):
                             data['payrollReport']['employeeReports'].append({
                                 'employeeId': employee.employeeId,
                                 'payPeriod':{
-                                'startPeriod': f"{year}-{month}-1",
-                                'endPeriod': f"${year}-{month}-15"
+                                'startPeriod': f"{year}-{month}-{1:02d}",
+                                'endPeriod': f"{year}-{month}-15"
                                 },
                                 'amountPaid': "${:.2f}".format(first_period_pay)
                             })
@@ -60,7 +60,7 @@ class ReportSerializer(serializers.ModelSerializer):
                                     'startPeriod': f"{year}-{month}-16",
                                     'endPeriod': f"{year}-{month}-{num_days}"
                                 },
-                                'amountPaid': "{:.2f}".format(second_period_pay)
+                                'amountPaid': "${:.2f}".format(second_period_pay)
                             })
         return data
         
